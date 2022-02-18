@@ -1,14 +1,11 @@
 <script setup>
-defineProps({
-  article: {
-    type: Object,
-    required: true,
-  },
-})
+import { ref } from 'vue'
+import articleApi from '@/api/article'
+const articles = ref(await articleApi.all())
 </script>
 
 <template>
-  <div class="list-item">
+  <div class="list-item" v-for="article of articles" :key="article.id">
     <router-link :to="`/show/${article.id}`">{{ article.title }}</router-link>
   </div>
 </template>

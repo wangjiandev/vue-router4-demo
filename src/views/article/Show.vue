@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
-import articleApi from '../../api/article'
+import articleApi from '@/api/article'
 
 const route = useRoute()
 const article = ref(await articleApi.find(route.params.id))
